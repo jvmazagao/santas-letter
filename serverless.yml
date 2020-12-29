@@ -48,17 +48,17 @@ functions:
         Action:
           - dynamodb:PutItem
         Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.LETTERS_TABLE}
-  # getLeters:
-  #   handler: src/handler/getLeters.handler
-  #   events:
-  #     - http:
-  #         method: get
-  #         path: letter
-  #   iamRoleStatements:
-  #     - Effect: Allow
-  #       Action:
-  #         - dynamodb:Scan
-  #       Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.LETTERS_TABLE}
+  getLetters:
+    handler: src/handler/getLetters.handler
+    events:
+      - http:
+          method: get
+          path: letter
+    iamRoleStatements:
+      - Effect: Allow
+        Action:
+          - dynamodb:Scan
+        Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.LETTERS_TABLE}
   # updateTodo:
   #   handler: src/handler/updateLetter.handler
   #   events:

@@ -3,6 +3,7 @@ import LetterRepository from '../repository/letterRepository';
 import { Letter } from '../models/Letter';
 
 export default class LetterService {
+
   repository: LetterRepository;
   constructor(letterRepository: LetterRepository = new LetterRepository()) {
     this.repository = letterRepository;
@@ -18,5 +19,9 @@ export default class LetterService {
       address,
       createdAt: new Date().toISOString(),
     })
+  }
+
+  async getAllLetters(): Promise<Letter[]> {
+    return this.repository.getAllLetters();
   }
 }

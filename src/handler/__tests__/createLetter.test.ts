@@ -1,18 +1,9 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
-import { handler } from './createLetter';
-import LetterService from '../service/letterService';
+import { handler } from '../createLetter';
+import LetterService from '../../service/letterService';
 
 
 describe("Create letter unit tests", () => {
-  const OLD_ENV = process.env;
-  beforeEach(() => {
-    jest.resetModules();
-    process.env = { ...OLD_ENV }
-  })
-
-  afterAll(() => {
-    process.env = OLD_ENV;
-  })
   it('Expect that handler exists', () => {
     expect(handler).toBeTruthy();
   })

@@ -8,12 +8,20 @@ export default class TodoRepository {
     private readonly letterTable = process.env.LETTERS_TABLE
   ) { }
 
-  async createLetter(letter: Letter) {
+  async createLetter(letter: Letter): Promise<Letter> {
     await this.client.put({
       TableName: this.letterTable,
       Item: letter,
     }).promise()
     return letter;
+  }
+
+  async getAllLetters(): Promise<Array<Letter>> {
+    const result = await this.client.scan({
+      TableName: this.letterTable
+    }).promise()
+
+    return result.Items as Letter[];
   }
 }
 

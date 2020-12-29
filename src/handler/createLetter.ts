@@ -1,5 +1,6 @@
 import { APIGatewayProxyEvent, APIGatewayProxyHandler, APIGatewayProxyResult } from "aws-lambda";
 import LetterService from '../service/letterService';
+
 export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
   const { name, content, address } = JSON.parse(event.body);
   const service = new LetterService();
