@@ -1,5 +1,6 @@
 {
   "name": "santas-letter",
+  "type": "module",
   "version": "1.0.0",
   "description": "Serverless webpack example using Typescript",
   "main": "handler.js",
@@ -17,6 +18,7 @@
     "fork-ts-checker-webpack-plugin": "^6.0.0",
     "jest": "^26.6.3",
     "serverless-webpack": "^5.2.0",
+    "ts-jest": "^26.4.4",
     "ts-loader": "^8.0.10",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.5",

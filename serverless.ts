@@ -32,6 +32,17 @@ const serverlessConfiguration: AWS = {
           }
         }
       ]
+    },
+    createLetter: {
+      handler: 'src/handler/createLetter.handler',
+      events: [
+        {
+          http: {
+            method: 'post',
+            path: 'letter'
+          }
+        }
+      ]
     }
   }
 }
