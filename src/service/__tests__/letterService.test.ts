@@ -1,5 +1,5 @@
-import LetterService from './letterService';
-import LetterRepository from '../repository/letterRepository';
+import LetterService from '../letterService';
+import LetterRepository from '../../repository/letterRepository';
 
 describe("Letter Service unit testing", () => {
   it("Should return Letter", async () => {

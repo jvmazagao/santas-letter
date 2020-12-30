@@ -23,6 +23,25 @@ export default class TodoRepository {
 
     return result.Items as Letter[];
   }
+
+  async updateLetter(request: Partial<Letter>): Promise<Letter> {
+    const updated = await this.client.update({
+      TableName: this.letterTable,
+      Key: {
+        'id': request.id,
+      },
+      UpdateExpression: "set #address = :address",
+      ExpressionAttributeNames: {
+        '#address': 'address',
+      },
+      ExpressionAttributeValues: {
+        ':address': request.address,
+      },
+      ReturnValues: 'ALL_NEW',
+    }).promise();
+
+    return updated;
+  }
 }
 
 function createDynamoDBClient() {
