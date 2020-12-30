@@ -22,7 +22,11 @@ export default class LetterService {
   }
 
   async getAllLetters(): Promise<Letter[]> {
-    return this.repository.getAllLetters();
+    return await this.repository.getAllLetters();
+  }
+
+  async deleteLetterById(id: string) {
+    return await this.repository.deleteLetterById(id)
   }
 
   async updateLetter(request: Partial<Letter>): Promise<Letter> {

@@ -48,4 +48,12 @@ describe("Letter Service unit testing", () => {
       expect(LetterRepository.prototype.updateLetter).toHaveBeenCalledWith(request);
       expect(response).toStrictEqual({ ...mock, address: request.address });
     })
+
+  it('Should return deleted letter', async () => {
+    const service = new LetterService();
+    const id = '1';
+    LetterRepository.prototype.deleteLetterById = jest.fn().mockResolvedValue({});
+    await service.deleteLetterById(id);
+    expect(LetterRepository.prototype.deleteLetterById).toHaveBeenCalledWith(id);
+  })
 })
