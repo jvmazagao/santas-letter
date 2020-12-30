@@ -40,7 +40,7 @@ export default class TodoRepository {
       ReturnValues: 'ALL_NEW',
     }).promise();
 
-    return updated;
+    return updated.Attributes as Letter;
   }
 }
 
