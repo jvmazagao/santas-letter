@@ -70,17 +70,17 @@ functions:
         Action:
           - dynamodb:UpdateItem
         Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.LETTERS_TABLE}
-  #deleteTodo:
-  #   handler: src/handler/deleteTodo.handler
-  #   events:
-  #     - http:
-  #         method: delete
-  #         path: letter/{id}
-  #   iamRoleStatements:
-  #     - Effect: Allow
-  #       Action:
-  #         - dynamodb:DeleteItem
-  #       Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.LETTERS_TABLE}
+  deleteTodo:
+    handler: src/handler/deleteLetter.handler
+    events:
+      - http:
+          method: delete
+          path: letter/{id}
+    iamRoleStatements:
+      - Effect: Allow
+        Action:
+          - dynamodb:DeleteItem
+        Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.LETTERS_TABLE}
 #5
 resources: # CloudFormation template syntax
   Resources:
