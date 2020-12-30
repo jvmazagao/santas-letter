@@ -42,6 +42,13 @@ export default class TodoRepository {
 
     return updated.Attributes as Letter;
   }
+
+  async deleteLetterById(id: string) {
+    return this.client.delete({
+      TableName: this.letterTable,
+      Key: { 'id': id }
+    }).promise();
+  }
 }
 
 function createDynamoDBClient() {

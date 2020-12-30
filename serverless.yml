@@ -59,18 +59,18 @@ functions:
         Action:
           - dynamodb:Scan
         Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.LETTERS_TABLE}
-  # updateTodo:
-  #   handler: src/handler/updateLetter.handler
-  #   events:
-  #     - http:
-  #         method: patch
-  #         path: letter/{id}
-  #   iamRoleStatements:
-  #     - Effect: Allow
-  #       Action:
-  #         - dynamodb:UpdateItem
-  #       Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.LETTERS_TABLE}
-  # deleteTodo:
+  updateTodo:
+    handler: src/handler/updateLetter.handler
+    events:
+      - http:
+          method: patch
+          path: letter/{id}
+    iamRoleStatements:
+      - Effect: Allow
+        Action:
+          - dynamodb:UpdateItem
+        Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.LETTERS_TABLE}
+  #deleteTodo:
   #   handler: src/handler/deleteTodo.handler
   #   events:
   #     - http:
