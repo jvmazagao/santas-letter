@@ -24,4 +24,8 @@ export default class LetterService {
   async getAllLetters(): Promise<Letter[]> {
     return this.repository.getAllLetters();
   }
+
+  async updateLetter(request: Partial<Letter>): Promise<Letter> {
+    return await this.repository.updateLetter(request);
+  }
 }
