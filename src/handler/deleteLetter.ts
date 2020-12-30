@@ -7,7 +7,7 @@ export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEven
   const { id } = event.pathParameters;
   await service.deleteLetterById(id);
   return {
-    statusCode: 200,
+    statusCode: 204,
     body: ''
   }
 }

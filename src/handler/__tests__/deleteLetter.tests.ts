@@ -11,7 +11,7 @@ describe("Handler unit test - upadteLetter", () => {
     LetterService.prototype.deleteLetterById = jest.fn().mockResolvedValue({});
     const response = await handler({ pathParameters: JSON.stringify({ id: '1' }) } as unknown as APIGatewayProxyEvent, null, null) as APIGatewayProxyResult;
     expect(LetterService.prototype.deleteLetterById).toHaveBeenCalled();
-    expect(response.statusCode).toBe(200);
+    expect(response.statusCode).toBe(204);
     expect(response.body).toBe('')
   })
 })
